@@ -1,0 +1,12 @@
+  version: '3'
+
+  services:
+    jupyter:
+      image: jupyter/datascience-notebook:latest
+      environment: 
+        - JUPYTER_ALLOW_INSECURE_WRITES=true  # Otherwise the kernel will break due to lack of permissions.
+      build: .
+      volumes:
+        - ./notebooks:/home/jovyan
+      ports:
+        - "8888:8888"
